@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains sandbox.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sandbox_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the sandbox module.
+    case 'help.page.sandbox':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function sandbox_theme() {
+  return [
+    'sandbox' => [
+      'render element' => 'children',
+    ],
+  ];
+}
